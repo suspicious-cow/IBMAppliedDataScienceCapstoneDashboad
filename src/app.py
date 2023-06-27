@@ -17,6 +17,9 @@ spacex_df['Launch Site'] = spacex_df['Launch Site'].replace('CCAFS LC-40', 'CCAF
 # Create a dash application
 app = dash.Dash(__name__)
 
+# add for deployment
+server = app.server
+
 # Create an app layout
 app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
                                         style={'textAlign': 'center', 'color': '#503D36',
