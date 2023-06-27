@@ -5,9 +5,19 @@ import dash_html_components as html
 import dash_core_components as dcc
 from dash.dependencies import Input, Output
 import plotly.express as px
+import os
 
-# Read the data into pandas dataframe
-spacex_df = pd.read_csv("CSV_Files/spacex_launch_dash.csv")
+
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.realpath(__file__))
+
+# Construct the file path
+file_path = os.path.join(script_dir, "spacex_launch_dash.csv")
+
+# Load the file
+spacex_df = pd.read_csv(file_path)
+
+# get the min and max payload values for the slider
 max_payload = spacex_df['Payload Mass (kg)'].max()
 min_payload = spacex_df['Payload Mass (kg)'].min()
 
